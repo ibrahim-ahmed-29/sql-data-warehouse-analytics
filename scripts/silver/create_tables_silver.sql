@@ -31,15 +31,15 @@ USE Silver;
 
 DROP TABLE IF EXISTS silver.crm_cust_info;
 
-CREATE TABLE silver.crm_cust_info (
-    cst_id INT,                         -- Unique customer identifier
-    cst_key VARCHAR(50),                -- Business/customer key
-    cst_firstname VARCHAR(50),          -- Customer first name
-    cst_lastname VARCHAR(50),           -- Customer last name
-    cst_material_status VARCHAR(50),    -- Customer marital status
-    cst_gndr VARCHAR(50),               -- Customer gender
-    cst_create_date DATE,               -- Date customer record was created in source
-    dwh_create_date DATETIME DEFAULT CURRENT_TIMESTAMP -- Record load timestamp
+CREATE TABLE silver.crm_cust_info(
+    cst_id INT,
+    cst_key VARCHAR(50),
+    cst_firstname VARCHAR(50),
+    cst_lastname VARCHAR(50),
+    cst_marital_status VARCHAR(50),
+    cst_gndr VARCHAR(20),
+    cst_create_date DATE,
+    dwh_create_date datetime default current_timestamp
 );
 
 ------------------------------------------------------------
@@ -49,15 +49,14 @@ CREATE TABLE silver.crm_cust_info (
 
 DROP TABLE IF EXISTS silver.crm_prd_info;
 
-CREATE TABLE silver.crm_prd_info (
-    prd_id INT,                         -- Product identifier
-    prd_key VARCHAR(50),                -- Business/product key
-    prd_nm VARCHAR(50),                 -- Product name
-    prd_cost INT,                       -- Product cost
-    prd_line VARCHAR(50),               -- Product line/category
-    prd_start_dt DATETIME,              -- Product validity start date
-    prd_end_dt DATETIME,                -- Product validity end date
-    dwh_create_date DATETIME DEFAULT CURRENT_TIMESTAMP -- Record load timestamp
+CREATE TABLE silver.crm_prd_info(
+    prd_id INT,
+    cat_id varchar(50),
+    prd_key VARCHAR(50),
+    prd_nm VARCHAR(50),
+    prd_cost INT,
+    prd_line VARCHAR(50),
+    dwh_create_date datetime default current_timestamp
 );
 
 ------------------------------------------------------------
@@ -67,17 +66,17 @@ CREATE TABLE silver.crm_prd_info (
 
 DROP TABLE IF EXISTS silver.crm_sales_details;
 
-CREATE TABLE silver.crm_sales_details (
-    sls_ord_num VARCHAR(50),            -- Sales order number
-    sls_prd_key VARCHAR(50),            -- Product key
-    sls_cust_id INT,                    -- Customer identifier
-    sls_order_dt INT,                   -- Order date (YYYYMMDD)
-    sls_ship_dt INT,                    -- Shipping date (YYYYMMDD)
-    sls_due_dt INT,                     -- Due date (YYYYMMDD)
-    sls_sales INT,                      -- Total sales amount
-    sls_quantity INT,                   -- Quantity sold
-    sls_price INT,                      -- Unit selling price
-    dwh_create_date DATETIME DEFAULT CURRENT_TIMESTAMP -- Record load timestamp
+CREATE TABLE silver.crm_sales_details(
+    sls_order_num VARCHAR(50),
+    sls_prd_key VARCHAR(50),
+    sls_cust_id INT,
+    sls_order_dt date,
+    sls_ship_dt date,
+    sls_due_dt date,
+    sls_quantity INT,
+    sls_price INT,
+    sls_sales INT,
+    dwh_create_date datetime default current_timestamp
 );
 
 -- ==========================================
@@ -94,11 +93,11 @@ CREATE TABLE silver.crm_sales_details (
 
 DROP TABLE IF EXISTS silver.erp_cust_az12;
 
-CREATE TABLE silver.erp_cust_az12 (
-    cid VARCHAR(50),                    -- Customer identifier
-    bdate DATE,                         -- Birth date
-    gen VARCHAR(50),                    -- Gender
-    dwh_create_date DATETIME DEFAULT CURRENT_TIMESTAMP -- Record load timestamp
+CREATE TABLE silver.erp_cust_az12(
+    cid VARCHAR(50),
+    bdate DATE,
+    gen VARCHAR(50),
+    dwh_create_date datetime default current_timestamp
 );
 
 ------------------------------------------------------------
@@ -108,10 +107,10 @@ CREATE TABLE silver.erp_cust_az12 (
 
 DROP TABLE IF EXISTS silver.erp_loc_a101;
 
-CREATE TABLE silver.erp_loc_a101 (
-    cid VARCHAR(50),                    -- Customer identifier
-    cntry VARCHAR(50),                  -- Country
-    dwh_create_date DATETIME DEFAULT CURRENT_TIMESTAMP -- Record load timestamp
+CREATE TABLE silver.erp_loc_a101(
+    cid VARCHAR(50),
+    cntry VARCHAR(50),
+    dwh_create_date datetime default current_timestamp
 );
 
 ------------------------------------------------------------
@@ -121,11 +120,11 @@ CREATE TABLE silver.erp_loc_a101 (
 
 DROP TABLE IF EXISTS silver.erp_px_cat_g1v2;
 
-CREATE TABLE silver.erp_px_cat_g1v2 (
-    id VARCHAR(50),                     -- Product/category identifier
-    cat VARCHAR(50),                    -- Product category
-    subcat VARCHAR(50),                 -- Product subcategory
-    maintenance VARCHAR(50),            -- Maintenance classification
-    dwh_create_date DATETIME DEFAULT CURRENT_TIMESTAMP -- Record load timestamp
+CREATE TABLE silver.erp_px_cat_g1v2(
+    id VARCHAR(50),
+    cat VARCHAR(50),
+    subcat VARCHAR(50),
+    maintenance VARCHAR(50),
+    dwh_create_date datetime default current_timestamp
 );
 
