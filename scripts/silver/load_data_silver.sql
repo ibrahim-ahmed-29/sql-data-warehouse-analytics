@@ -2,9 +2,9 @@
 
 ## Overview
 
-This script loads data from the **Bronze** layer into the **Silver** layer.
+-- This script loads data from the **Bronze** layer into the **Silver** layer.
 
-The Silver layer applies data cleansing, standardization, and business transformation rules before the data is used for reporting and analytics.
+-- The Silver layer applies data cleansing, standardization, and business transformation rules before the data is used for reporting and analytics.
 
 ---
 
