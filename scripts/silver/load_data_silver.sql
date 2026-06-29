@@ -6,7 +6,7 @@
 
 -- The Silver layer applies data cleansing, standardization, and business transformation rules before the data is used for reporting and analytics.
 
----
+--
 
 # =====================================================
 
