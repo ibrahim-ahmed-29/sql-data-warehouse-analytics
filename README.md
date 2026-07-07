@@ -169,3 +169,5 @@ This project is licensed under the terms of the [MIT License](https://github.com
 
 **Ibrahim Ahmed**
 Aspiring Data Analyst | SQL · Python · Power BI
+
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?logo=github)](https://github.com/ibrahim-ahmed-29)
